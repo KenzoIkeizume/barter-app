@@ -16,7 +16,7 @@ import MenuIcon from "@material-ui/icons/Menu";
 import SwapHoriz from "@material-ui/icons/SwapHoriz";
 
 import classNames from "classnames";
-import { BrowserRouter as Router, Link, Route } from "react-router-dom";
+import { BrowserRouter as Router, Link, Route, Switch } from "react-router-dom";
 
 import * as React from "react";
 import { styles } from "./utils";
@@ -92,7 +92,7 @@ class Layout extends React.Component<IProps, IState> {
             </div>
             <Divider />
             <List>
-              <Link to="/">
+              <Link to="/" style={{ textDecoration: "none", color: "#FFF" }}>
                 <ListItem button={true}>
                   <ListItemIcon>
                     <SwapHoriz />
@@ -100,7 +100,7 @@ class Layout extends React.Component<IProps, IState> {
                   <ListItemText primary={"Swap"} />
                 </ListItem>
               </Link>
-              <Link to="/archive/">
+              <Link to="/archive/" style={{ textDecoration: "none", color: "#FFF" }}>
                 <ListItem button={true}>
                   <ListItemIcon>
                     <Archive />
@@ -112,8 +112,10 @@ class Layout extends React.Component<IProps, IState> {
           </Drawer>
           <main className={classes.content}>
             <div className={classes.toolbar} />
-            <Route path="/" exact={true} component={ChangeItem} />
-            <Route path="/archive/" component={ArchiveItem} />
+            <Switch>
+              <Route path="/" exact={true} component={ChangeItem} />
+              <Route path="/archive/" component={ArchiveItem} />
+            </Switch>
           </main>
         </Router>
       </div >
