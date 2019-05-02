@@ -1,4 +1,4 @@
-# simple-react
+# barter-app
 
 ## Built With
 
@@ -14,4 +14,3 @@ Run `yarn start` for a dev server. Navigate to `http://localhost:8080/`. The app
 ## Build
 
 Run `yarn build` to build the project. The build artifacts will be stored in the `dist/` directory.
-# barter-app
