@@ -1,9 +1,14 @@
-import Avatar from "@material-ui/core/Avatar";
-import Button from "@material-ui/core/Button";
-import CssBaseline from "@material-ui/core/CssBaseline";
-import Paper from "@material-ui/core/Paper";
-import Typography from "@material-ui/core/Typography";
-import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
+import {
+  Avatar,
+  Button,
+  CssBaseline,
+  Paper,
+  Typography,
+} from "@material-ui/core";
+
+import {
+  LockOutlined,
+} from "@material-ui/icons";
 
 import { withStyles, WithStyles } from "@material-ui/core/styles";
 
@@ -36,7 +41,7 @@ class Login extends React.Component<IProps, {}> {
           <CssBaseline />
           <Paper className={classes.paper}>
             <Avatar className={classes.avatar}>
-              <LockOutlinedIcon />
+              <LockOutlined />
             </Avatar>
             <Typography component="h1" variant="h5">
               Sign in

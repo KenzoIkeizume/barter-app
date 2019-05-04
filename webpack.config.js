@@ -4,14 +4,13 @@ module.exports = {
   entry: "./src/index.tsx",
   output: {
     filename: "bundle.js",
-    path: __dirname + "/dist"
+    path: __dirname + "/dist",
+    publicPath: '/'
   },
   devtool: "source-map",
-
   resolve: {
     extensions: [".ts", ".tsx", ".js", ".json", ".scss"]
   },
-
   module: {
     rules: [
       {
@@ -31,6 +30,9 @@ module.exports = {
         use: ['style-loader', 'css-loader', 'sass-loader']
       }
     ]
+  },
+  devServer: {
+    historyApiFallback: true,
   },
   plugins: [
     new HtmlWebPackPlugin({
