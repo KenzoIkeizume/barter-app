@@ -36,30 +36,22 @@ class Login extends React.Component<IProps, {}> {
     const { classes } = this.props;
 
     return (
-      <FirebaseAuthProvider {...CONFIG} firebase={firebase}>
-        <main className={classes.main}>
-          <CssBaseline />
-          <Paper className={classes.paper}>
-            <Avatar className={classes.avatar}>
-              <LockOutlined />
-            </Avatar>
-            <Typography component="h1" variant="h5">
-              Sign in
-            </Typography>
-            <div>
-              <FirebaseAuthConsumer>
-                {(authEmission) => this._RenderStateClient(authEmission)}
-              </FirebaseAuthConsumer>
-              <Button
-                variant="contained"
-                onClick={this._GoogleSignIn}
-              >
-                Login With Google
-              </Button>
-            </div>
-          </Paper>
-        </main>
-      </FirebaseAuthProvider>
+      <main className={classes.main}>
+        <CssBaseline />
+        <Paper className={classes.paper}>
+          <Avatar className={classes.avatar}>
+            <LockOutlined />
+          </Avatar>
+          <Typography component="h1" variant="h5">
+            Sign in
+          </Typography>
+          <FirebaseAuthProvider {...CONFIG} firebase={firebase}>
+            <FirebaseAuthConsumer>
+              {(authEmission) => this._RenderStateClient(authEmission)}
+            </FirebaseAuthConsumer>
+          </FirebaseAuthProvider>
+        </Paper>
+      </main >
     );
   }
 
@@ -94,6 +86,12 @@ class Login extends React.Component<IProps, {}> {
             onClick={this._AnonymouslySignIn}
           >
             Sign in anonymously
+          </Button>
+          <Button
+            variant="contained"
+            onClick={this._GoogleSignIn}
+          >
+            Login With Google
           </Button>
         </div>
       );

@@ -1,8 +1,10 @@
 import {
   AppBar,
+  Button,
   CssBaseline,
   Divider,
   Drawer,
+  Grid,
   IconButton,
   List,
   ListItem,
@@ -78,9 +80,22 @@ class Layout extends React.Component<IProps, IState> {
             >
               <Menu />
             </IconButton>
-            <Typography variant="h6" color="inherit" noWrap={true}>
-              Barter
-            </Typography>
+            <Grid
+              justify="space-between" // Add it here :)
+              container 
+              spacing={24}
+            >
+              <Grid item xs={11}>
+                <Typography variant="h6" color="inherit" noWrap={true}>
+                  Barter
+                </Typography>
+              </Grid>
+              <Grid item xs={1}>
+                <Button color="inherit">
+                  Logout
+                </Button>
+              </Grid>
+            </Grid>
           </Toolbar>
         </AppBar>
         <Drawer
