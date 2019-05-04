@@ -11,13 +11,13 @@ import {
   FirebaseAuthConsumer,
   FirebaseAuthProvider,
 } from "@react-firebase/auth";
+import { AuthEmission } from "@react-firebase/auth/dist/types";
 import * as firebase from "firebase/app";
 import "firebase/auth";
 import * as React from "react";
 
 import { CONFIG } from "../../credentials";
 import { styles } from "./utils";
-import { AuthEmission } from "@react-firebase/auth/dist/types";
 
 interface IProps extends WithStyles<typeof styles> { }
 
