@@ -2,6 +2,7 @@ import {
   Avatar,
   Button,
   CssBaseline,
+  Grid,
   Paper,
   Typography,
 } from "@material-ui/core";
@@ -51,6 +52,9 @@ class Login extends React.Component<IProps, {}> {
             </FirebaseAuthConsumer>
           </FirebaseAuthProvider>
         </Paper>
+        <Button onClick={() => {this.props.history.push('/change')}} variant="contained">
+          In
+        </Button>
       </main >
     );
   }
@@ -67,33 +71,47 @@ class Login extends React.Component<IProps, {}> {
   private _RenderStateClient({ isSignedIn, firebase }: AuthEmission): JSX.Element {
     if (isSignedIn === true) {
       return (
-        <div>
-          <h2>You're signed in 🎉 </h2>
+        <>
+          <Typography variant="h5" color="inherit" noWrap={true}>
+            You're signed in 🎉
+          </Typography>
           <Button
             variant="contained"
             onClick={this._SignOut}
           >
             Sign out
           </Button>
-        </div>
+        </>
       );
     } else {
       return (
-        <div>
-          <h2>You're not signed in </h2>
-          <Button
-            variant="contained"
-            onClick={this._AnonymouslySignIn}
+        <>
+          <Typography variant="h5" color="inherit" noWrap={true}>
+            You're not signed in
+          </Typography>
+          <Grid
+            justify="space-between"
+            container={true}
+            spacing={24}
           >
-            Sign in anonymously
-          </Button>
-          <Button
-            variant="contained"
-            onClick={this._GoogleSignIn}
-          >
-            Login With Google
-          </Button>
-        </div>
+            <Grid item={true} xs={6}>
+              <Button
+                variant="contained"
+                onClick={this._AnonymouslySignIn}
+              >
+                Sign in anonymously
+              </Button>
+            </Grid>
+            <Grid item={true} xs={6}>
+              <Button
+                variant="contained"
+                onClick={this._GoogleSignIn}
+              >
+                Login With Google
+              </Button>
+            </Grid>
+          </Grid>
+        </>
       );
     }
   }

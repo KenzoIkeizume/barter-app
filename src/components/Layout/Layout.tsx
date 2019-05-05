@@ -81,19 +81,21 @@ class Layout extends React.Component<IProps, IState> {
               <Menu />
             </IconButton>
             <Grid
-              justify="space-between" // Add it here :)
-              container 
+              justify="space-between"
+              container={true}
               spacing={24}
             >
-              <Grid item xs={11}>
+              <Grid item={true} xs={11}>
                 <Typography variant="h6" color="inherit" noWrap={true}>
                   Barter
                 </Typography>
               </Grid>
-              <Grid item xs={1}>
-                <Button color="inherit">
-                  Logout
-                </Button>
+              <Grid item={true} xs={1}>
+                <Link to="/" style={{ textDecoration: "none", color: "#FFF" }}>
+                  <Button color="inherit">
+                    Logout
+                  </Button>
+                </Link>
               </Grid>
             </Grid>
           </Toolbar>
