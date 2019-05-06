@@ -2,7 +2,7 @@
 import Typography from "@material-ui/core/Typography";
 
 import * as React from "react";
-import { LayoutHoc } from "./HOC/LayoutHoc/LayoutHoc";
+import { LayoutHoc } from "../HOC/LayoutHoc/LayoutHoc";
 
 const ChangeItem = () => {
   return (

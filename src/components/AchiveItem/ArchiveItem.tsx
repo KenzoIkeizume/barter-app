@@ -2,7 +2,7 @@
 import { Button, Grid, TextField, Typography } from "@material-ui/core";
 
 import * as React from "react";
-import { LayoutHoc } from "./HOC/LayoutHoc/LayoutHoc";
+import { LayoutHoc } from "../HOC/LayoutHoc/LayoutHoc";
 
 interface IState {
   multiline: string,

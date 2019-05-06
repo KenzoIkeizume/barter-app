@@ -20,6 +20,7 @@ import {
   ChevronLeft,
   Menu,
   SwapHoriz,
+  ViewList,
 } from "@material-ui/icons";
 
 import classNames from "classnames";
@@ -134,6 +135,14 @@ class Layout extends React.Component<IProps, IState> {
                   <Archive />
                 </ListItemIcon>
                 <ListItemText primary={"Archive"} />
+              </ListItem>
+            </Link>
+            <Link to="/list_item/" style={{ textDecoration: "none", color: "#FFF" }}>
+              <ListItem button={true}>
+                <ListItemIcon>
+                  <ViewList />
+                </ListItemIcon>
+                <ListItemText primary={"List"} />
               </ListItem>
             </Link>
           </List>
