@@ -6,10 +6,22 @@
   display: flex;
   align-items: center;
 
+  .avatar {
+    padding-right: 10px;
+  }
+
   .content {
+    padding-right: 10px;
 
     .description-item {
+      white-space: nowrap;
       margin: auto;
     }
+  }
+
+  .actions {
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
   }
 }
