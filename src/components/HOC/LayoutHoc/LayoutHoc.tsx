@@ -31,9 +31,9 @@ const renderStateClient = <P extends object>(
   props: object,
   Component: React.ComponentType<P>) => {
   return (
-    isSignedIn ?
+    isSignedIn && firebase.auth  ?
       (
-        <Layout>
+        <Layout userName={firebase.auth().currentUser.displayName}>
           <Component {...props as P} />
         </Layout>
       )

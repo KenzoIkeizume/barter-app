@@ -32,7 +32,9 @@ interface IState {
   open: boolean;
 }
 
-interface IProps extends WithStyles<typeof styles> { }
+interface IProps extends WithStyles<typeof styles> {
+  userName: string;
+}
 
 class Layout extends React.Component<IProps, IState> {
   constructor(props: any) {
@@ -85,9 +87,14 @@ class Layout extends React.Component<IProps, IState> {
               container={true}
               spacing={24}
             >
-              <Grid item={true} xs={11}>
+              <Grid item={true} xs={10}>
                 <Typography variant="h6" color="inherit" noWrap={true}>
                   Barter
+                </Typography>
+              </Grid>
+              <Grid item={true} xs={1}>
+                <Typography variant="h6" color="inherit" noWrap={true} style={{width: "300px"}}>
+                  {this.props.userName}
                 </Typography>
               </Grid>
               <Grid item={true} xs={1}>

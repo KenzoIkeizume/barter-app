@@ -68,6 +68,14 @@ class Login extends React.Component<IProps, {}> {
     }
   }
 
+  private _AnonymouslySignIn(): void {
+    firebase.app().auth().signInAnonymously();
+  }
+
+  private _SignOut(): void {
+    firebase.app().auth().signOut();
+  }
+
   private _RenderStateClient({ isSignedIn, firebase }: AuthEmission): JSX.Element {
     if (isSignedIn === true) {
       return (
@@ -114,14 +122,6 @@ class Login extends React.Component<IProps, {}> {
         </>
       );
     }
-  }
-
-  private _AnonymouslySignIn(): void {
-    firebase.app().auth().signInAnonymously();
-  }
-
-  private _SignOut(): void {
-    firebase.app().auth().signOut();
   }
 }
 
