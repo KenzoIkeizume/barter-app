@@ -57,7 +57,7 @@ export class ArchiveItem extends React.Component<{}, IState> {
             </form>
           </Grid>
           <Grid item xs={12} md={6}>
-            <Typography paragraph={true}>
+            <Typography paragraph={true} className="text-description">
               Consequat mauris nunc congue nisi vitae suscipit. Fringilla est ullamcorper eget nulla
               facilisi etiam dignissim diam. Pulvinar elementum integer enim neque volutpat ac
               tincidunt. Ornare suspendisse sed nisi lacus sed viverra tellus. Purus sit amet volutpat

@@ -83,29 +83,21 @@ class Layout extends React.Component<IProps, IState> {
             >
               <Menu />
             </IconButton>
-            <Grid
-              justify="space-between"
-              container={true}
-              spacing={24}
-            >
-              <Grid item={true} xs={10}>
-                <Typography variant="h6" color="inherit" noWrap={true}>
-                  Barter
-                </Typography>
-              </Grid>
-              <Grid item={true} xs={1}>
-                <Typography variant="h6" color="inherit" noWrap={true} style={{width: "300px"}}>
+            <div className="layout-content">
+              <Typography variant="h6" color="inherit" noWrap={true}>
+                Barter
+              </Typography>
+              <div className="right-content">
+                <Typography variant="h6" color="inherit" noWrap={true} className="user-name">
                   {this.props.userName}
                 </Typography>
-              </Grid>
-              <Grid item={true} xs={1}>
-                <Link to="/" style={{ textDecoration: "none", color: "#FFF" }}>
+                <Link to="/" style={{ textDecoration: "none", color: "#FFF" }} className="action-logout">
                   <Button color="inherit">
                     Logout
                   </Button>
                 </Link>
-              </Grid>
-            </Grid>
+              </div>
+            </div>
           </Toolbar>
         </AppBar>
         <Drawer
@@ -121,7 +113,7 @@ class Layout extends React.Component<IProps, IState> {
           </div>
           <Divider />
           <List>
-            <Link to="/change" style={{ textDecoration: "none", color: "#FFF" }}>
+            <Link to="/change/" style={{ textDecoration: "none", color: "#FFF" }}>
               <ListItem button={true}>
                 <ListItemIcon>
                   <SwapHoriz />

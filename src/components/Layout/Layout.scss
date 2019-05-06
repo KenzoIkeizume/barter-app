@@ -1,0 +1,18 @@
+.layout-content {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+
+  .right-content {
+    display: flex;
+
+    .user-name {
+      margin: auto;
+      padding-right: 10px;
+      font-size: 15px;
+    }
+    .action-logout {
+      padding-right: 10px;
+    }
+  }
+}

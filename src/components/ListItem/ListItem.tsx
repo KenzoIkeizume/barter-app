@@ -47,29 +47,27 @@ export class ListItem extends React.Component<{}, IState> {
     return this.state.itens.map((value, index) => {
       return (
         <div className="item" key={index}>
-          <Grid container>
-            <Grid item xs={1}>
-              <Avatar>
-                <Folder />
-              </Avatar>
-            </Grid>
-            <Grid item xs={10}>
-              <Typography paragraph={true} color="inherit" className="description-item">
-                {value}
-              </Typography>
-            </Grid>
-            <Grid item xs={1}>
-                <IconButton aria-label="Delete">
-                  <Delete />
-                </IconButton>
-                <IconButton aria-label="Edit">
-                  <Edit />
-                </IconButton>
-                <IconButton aria-label="View">
-                  <PageviewOutlined />
-                </IconButton>
-            </Grid>
-          </Grid>
+          <div className="avatar">
+            <Avatar>
+              <Folder />
+            </Avatar>
+          </div>
+          <div className="content">
+            <Typography paragraph={true} color="inherit" className="description-item">
+              {value}
+            </Typography>
+          </div>
+          <div className="actions">
+            <IconButton aria-label="Delete">
+              <Delete />
+            </IconButton>
+            <IconButton aria-label="Edit">
+              <Edit />
+            </IconButton>
+            <IconButton aria-label="View">
+              <PageviewOutlined />
+            </IconButton>
+          </div>
         </div>
       )
     })
