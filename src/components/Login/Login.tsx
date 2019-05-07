@@ -8,7 +8,7 @@ import {
 } from "@material-ui/core";
 
 import {
-  LockOutlined,
+  LockOutlined, HistorySharp,
 } from "@material-ui/icons";
 
 import { withStyles, WithStyles } from "@material-ui/core/styles";
@@ -25,7 +25,9 @@ import * as React from "react";
 import { CONFIG } from "../../credentials";
 import { styles } from "./utils";
 
-interface IProps extends WithStyles<typeof styles> { }
+interface IProps extends WithStyles<typeof styles> {
+  history: any
+}
 
 class Login extends React.Component<IProps, {}> {
   constructor(props: any) {
@@ -48,80 +50,40 @@ class Login extends React.Component<IProps, {}> {
           </Typography>
           <FirebaseAuthProvider {...CONFIG} firebase={firebase}>
             <FirebaseAuthConsumer>
-              {(authEmission) => this._RenderStateClient(authEmission)}
+              {(authEmission) => this._RenderStateClient(authEmission, this.props.history)}
             </FirebaseAuthConsumer>
           </FirebaseAuthProvider>
         </Paper>
-        <Button onClick={() => {this.props.history.push('/change')}} variant="contained">
-          In
-        </Button>
       </main >
     );
   }
 
-  private _GoogleSignIn(): void {
+  private _GoogleSignIn(history: any): void {
     try {
       const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
-      firebase.auth().signInWithPopup(googleAuthProvider);
+      firebase.auth().signInWithPopup(googleAuthProvider).then(() => {
+        history.push('/list_item')
+      });
     } catch (error) {
       console.log('error :', error);
     }
   }
 
-  private _AnonymouslySignIn(): void {
-    firebase.app().auth().signInAnonymously();
-  }
+  // private _AnonymouslySignIn(): void {
+  //   firebase.app().auth().signInAnonymously();
+  // }
 
-  private _SignOut(): void {
-    firebase.app().auth().signOut();
-  }
-
-  private _RenderStateClient({ isSignedIn, firebase }: AuthEmission): JSX.Element {
-    if (isSignedIn === true) {
-      return (
-        <>
-          <Typography variant="h5" color="inherit" noWrap={true}>
-            You're signed in 🎉
-          </Typography>
-          <Button
-            variant="contained"
-            onClick={this._SignOut}
-          >
-            Sign out
-          </Button>
-        </>
-      );
-    } else {
-      return (
-        <>
-          <Typography variant="h5" color="inherit" noWrap={true}>
-            You're not signed in
-          </Typography>
-          <Grid
-            justify="space-between"
-            container={true}
-            spacing={24}
-          >
-            <Grid item={true} xs={6}>
-              <Button
-                variant="contained"
-                onClick={this._AnonymouslySignIn}
-              >
-                Sign in anonymously
-              </Button>
-            </Grid>
-            <Grid item={true} xs={6}>
-              <Button
-                variant="contained"
-                onClick={this._GoogleSignIn}
-              >
-                Login With Google
-              </Button>
-            </Grid>
-          </Grid>
-        </>
-      );
-    }
+  private _RenderStateClient({ isSignedIn, firebase }: AuthEmission, history: any): JSX.Element {
+    return (
+      <div className="button-login">
+        <Button
+          variant="contained"
+          onClick={() => this._GoogleSignIn(history)}
+        >
+          Login With Google
+        </Button>
+      </div>
+    );
   }
 }
 

@@ -25,6 +25,7 @@ import {
 
 import classNames from "classnames";
 import * as React from "react";
+import * as firebase from "firebase/app";
 import { Link } from "react-router-dom";
 
 import { styles } from "./utils";
@@ -47,6 +48,7 @@ class Layout extends React.Component<IProps, IState> {
 
     this.handleDrawerOpen = this.handleDrawerOpen.bind(this);
     this.handleDrawerClose = this.handleDrawerClose.bind(this);
+    this.signOut = this.signOut.bind(this);
   }
 
   public render() {
@@ -92,7 +94,7 @@ class Layout extends React.Component<IProps, IState> {
                   {this.props.userName}
                 </Typography>
                 <Link to="/" style={{ textDecoration: "none", color: "#FFF" }} className="action-logout">
-                  <Button color="inherit">
+                  <Button color="inherit" onClick={this.signOut}>
                     Logout
                   </Button>
                 </Link>
@@ -145,6 +147,10 @@ class Layout extends React.Component<IProps, IState> {
         </main>
       </div >
     );
+  }
+
+  private signOut(): void {
+    firebase.app().auth().signOut();
   }
 
   private handleDrawerOpen() {
